@@ -1,0 +1,35 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="container text-center">
+  <h1>Welcome to Admisiones!</h1>
+  	<div class="form-group well col-xs-12 col-sm-12 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
+  		<h2>Registrarse</h2>
+	  		<input class="form-control input-lg" type="text" placeholder="Nombre Completo" [(ngModel)]="registro.nombre">
+		  	<input class="form-control input-lg" type="email" placeholder="Correo Electrónico" [(ngModel)]="registro.email">
+		  	<input class="form-control input-lg" type="password" placeholder="Password" [(ngModel)]="registro.password">
+		  	<hr>
+				<div class="well">
+
+					<agm-map [latitude]="lat" [longitude]="lng" (mapClick)="selectedByUser($event)" [zoom]="zoom">
+					  <agm-marker [latitude]="lat" [longitude]="lng" ></agm-marker>
+					</agm-map>
+
+					<p>{{userLocationManual}}</p>
+					<form action="">
+						<h4>direccion en google maps</h4>
+						<input type="text" [formControl]="searchFiel" class="form-control input-lg">
+					</form>
+					<ul class="list-group">
+						<li class="list-group-item" *ngFor="let result of results$ | async" (click)="seleccionarDireccion(result)">{{result.formatted_address}}</li>
+					</ul>
+				</div>
+			<input class="form-control input-lg" type="text" placeholder="local" [(ngModel)]="registro.local">
+			<input class="form-control input-lg" type="text" placeholder="ciudad" [(ngModel)]="registro.ciudad">
+			<input class="form-control input-lg" type="text" placeholder="pais" [(ngModel)]="registro.pais">
+		  	<br>
+		  	<button type="button" class="btn btn-primary btn-lg" (click)="registrar()">Registrarse</button> 
+		  	<hr>
+		  	<a routerLink="/login">¿Tienes una cuenta? Logeate</a>
+ 	</div>
+
+
+</div>
